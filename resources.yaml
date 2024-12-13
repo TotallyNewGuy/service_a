@@ -34,12 +34,12 @@ spec:
           - name: GCP_CRED
             valueFrom:
               secretKeyRef:
-                name: data_center_project_secret
+                name: data-center-project-secret
                 key: GCP_CRED
           - name: TRAIN_TRACKER_KEY
             valueFrom:
               secretKeyRef:
-                name: data_center_project_secret
+                name: data-center-project-secret
                 key: TRAIN_TRACKER_KEY
           - name: PORT
             value: "8080"
