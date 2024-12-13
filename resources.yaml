@@ -28,7 +28,7 @@ spec:
         app: service-a
     spec:
       containers:
-      - name: nginx
+      - name: service-a-container
         image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/data-center-final-project/service-a:latest
         env:
           - name: GCP_CRED

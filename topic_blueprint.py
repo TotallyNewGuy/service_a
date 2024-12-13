@@ -9,7 +9,7 @@ topic_blueprint = Blueprint('topic_api', __name__, url_prefix='/topic')
 
 @topic_blueprint.route("/list")
 async def list_topics():
-    project_path = f"projects/{os.getenv("PROJECT_ID")}"
+    project_path = f"projects/{os.getenv('PROJECT_ID')}"
     topics = []
     for topic in get_publisher().list_topics(request={"project": project_path}):
         string_list = topic.name.split("/")
