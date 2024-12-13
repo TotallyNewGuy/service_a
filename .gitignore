@@ -1,0 +1,3 @@
+test_env_a/
+.env
+__pycache__/
