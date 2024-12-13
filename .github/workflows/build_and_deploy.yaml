@@ -24,6 +24,7 @@ jobs:
         with:
           version: '>= 363.0.0'
           project_id: ${{ secrets.PROJECT_ID }}
+          install_components: 'gke-gcloud-auth-plugin'
 
       - name: build and push the docker image
         env:
@@ -32,4 +33,13 @@ jobs:
           gcloud auth configure-docker us-central1-docker.pkg.dev
           docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/data-center-final-project/service_a:latest .
           docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/data-center-final-project/service_a:latest
+
+      - name: deploy to GKE
+        env:
+          GOOGLE_PROJECT: ${{ secrets.PROJECT_ID }}
+        run: |
+          gcloud container clusters get-credentials data-center-project --region us-central1
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" resources.yaml
+          kubectl apply -f secret.yaml
+          kubectl apply -f resources.yaml
   
