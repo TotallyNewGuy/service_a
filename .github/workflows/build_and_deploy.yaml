@@ -41,4 +41,5 @@ jobs:
           gcloud container clusters get-credentials data-center-project --region us-central1
           sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" resources.yaml
           kubectl apply -f resources.yaml
+          kubectl apply -f secret.yaml
   
