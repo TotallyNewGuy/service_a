@@ -34,6 +34,13 @@ jobs:
           docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/data-center-final-project/service_a:latest .
           docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/data-center-final-project/service_a:latest
 
+
+      - name: Install Secrets Store CSI Driver
+        run: |
+          kubectl apply -f https://github.com/kubernetes-sigs/secrets-store-csi-driver/releases/download/v1.4.7/secrets-store-csi-driver.yaml
+
+
+
       - name: deploy to GKE
         env:
           GOOGLE_PROJECT: ${{ secrets.PROJECT_ID }}
