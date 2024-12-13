@@ -28,7 +28,7 @@ async def create_topic(topic):
 async def delete_topic(topic):
     topic_path = get_publisher().topic_path(os.getenv("PROJECT_ID"), topic)
     res = get_publisher().delete_topic(request={"topic": topic_path})
-    return f"Delete topic topic res: {"successful" if res is None else "something wrong"}"
+    return f"Delete topic topic res: {'successful' if res is None else 'something wrong'}"
 
 
 @topic_blueprint.route("subscribe/<string:topic>")
