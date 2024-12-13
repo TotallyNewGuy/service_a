@@ -28,7 +28,7 @@ async def publish_message(json_data, topic):
     topic_path = get_publisher().topic_path(os.getenv("PROJECT_ID"), topic)
     # When you publish a message, the client returns a future.
     future = get_publisher().publish(topic_path, data)
-    print(f"Published {json_data} to topic {topic}, message_id: {future.result()}")
+    # print(f"Published {json_data} to topic {topic}, message_id: {future.result()}")
 
 
 def get_subscriber():
