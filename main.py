@@ -12,7 +12,6 @@ from pub_sub_util import init_pub_sub_client
 
 def create_app():
     load_dotenv()
-    # The main app
     app = Quart(__name__)
     # enable CORS
     app = cors(app, allow_origin="*")
