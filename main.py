@@ -25,7 +25,7 @@ app = create_app()
 async def poll_and_publish():
     while True:
         await update_arrivals()
-        await asyncio.sleep(60)
+        await asyncio.sleep(30)
 
 
 @app.before_serving
